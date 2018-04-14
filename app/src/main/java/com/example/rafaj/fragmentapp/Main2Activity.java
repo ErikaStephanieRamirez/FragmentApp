@@ -10,6 +10,7 @@ public class Main2Activity extends AppCompatActivity {
     TextView text;
     ImageView imagen;
     TextView descripcion;
+    TextView gravedad;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,6 +18,7 @@ public class Main2Activity extends AppCompatActivity {
 
         text = findViewById(R.id.textId);
         imagen = findViewById(R.id.imgId);
+        gravedad = findViewById(R.id.gravId);
         descripcion = findViewById(R.id.descId);
 
         Intent callingIntent = getIntent();
@@ -32,11 +34,15 @@ public class Main2Activity extends AppCompatActivity {
 
     private void handleReceivedText(Intent intent){
         String intentText = intent.getStringExtra(Intent.EXTRA_TEXT);
+
+        //instancia de Planetas enviando los recursos y el indice del item seleccionado
         Planetas planetaSeleccionada = new Planetas(getResources(),Integer.parseInt(intentText));
 
+        //settea la imagen y los strings utilizando la instancia planetaSeleccionada para obtener los objetos de la clase Planeta
         if (text != null){
             text.setText(planetaSeleccionada.getNombre());
             imagen.setImageDrawable(planetaSeleccionada.getImg());
+            gravedad.setText(planetaSeleccionada.getGravedad());
             descripcion.setText(planetaSeleccionada.getDescripcion());
         }
     }

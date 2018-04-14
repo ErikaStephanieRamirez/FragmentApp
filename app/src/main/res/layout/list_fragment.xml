@@ -3,6 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="vertical"
+    android:background="#f4ddf9"
+    android:padding="8dp"
     android:layout_height="match_parent">
 
     <ListView

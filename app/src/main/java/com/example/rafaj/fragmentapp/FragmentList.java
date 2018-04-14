@@ -46,7 +46,7 @@ public class FragmentList extends ListFragment implements AdapterView.OnItemClic
             Intent newIntent = new Intent(getActivity().getApplicationContext(), Main2Activity.class);
             newIntent.setAction(Intent.ACTION_SEND);
             newIntent.setType("text/text");
-            newIntent.putExtra(Intent.EXTRA_TEXT, i+"");
+            newIntent.putExtra(Intent.EXTRA_TEXT, i+""); //envia la posicion del item que selecciono el usuario a Main2Activity
             startActivity(newIntent);
         }
 
@@ -54,7 +54,7 @@ public class FragmentList extends ListFragment implements AdapterView.OnItemClic
             Toast.makeText(getActivity(), "Item: " + adapterView.getItemAtPosition(i).toString(), Toast.LENGTH_SHORT).show();
 
             Bundle bundle = new Bundle();
-            bundle.putString("KEY", i+"");
+            bundle.putString("KEY", i+""); //envia la posicion del item que selecciono el usuario como una llave a FragmentViewer
             FragmentViewer frag = new FragmentViewer();
             frag.setArguments(bundle);
 

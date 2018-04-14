@@ -3,18 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="#f4ddf9"
     android:layout_height="match_parent"
     tools:context="com.example.rafaj.fragmentapp.MainActivity">
 
 
     <fragment
+        android:background="#f4ddf9"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:name="com.example.rafaj.fragmentapp.FragmentList"
         android:id="@+id/list">
-
-
-
 
     </fragment>
 
