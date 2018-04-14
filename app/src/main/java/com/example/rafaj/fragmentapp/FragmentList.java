@@ -23,7 +23,6 @@ import java.util.List;
 
 public class FragmentList extends ListFragment implements AdapterView.OnItemClickListener{
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.list_fragment, container, false);
@@ -39,22 +38,23 @@ public class FragmentList extends ListFragment implements AdapterView.OnItemClic
         getListView().setOnItemClickListener(this);
     }
 
-
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        //Toast.makeText(getActivity(), "Item: " + adapterView.getItemAtPosition(i).toString(), Toast.LENGTH_SHORT).show();
 
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
+            Toast.makeText(getActivity(), "Item: " + adapterView.getItemAtPosition(i).toString(), Toast.LENGTH_SHORT).show();
             Intent newIntent = new Intent(getActivity().getApplicationContext(), Main2Activity.class);
             newIntent.setAction(Intent.ACTION_SEND);
-            newIntent.setType("text/plain");
-            newIntent.putExtra(Intent.EXTRA_TEXT, adapterView.getItemAtPosition(i).toString());
+            newIntent.setType("text/text");
+            newIntent.putExtra(Intent.EXTRA_TEXT, i+"");
             startActivity(newIntent);
-        }else if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+        }
+
+        else if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
             Toast.makeText(getActivity(), "Item: " + adapterView.getItemAtPosition(i).toString(), Toast.LENGTH_SHORT).show();
 
             Bundle bundle = new Bundle();
-            bundle.putString("KEY", adapterView.getItemAtPosition(i).toString());
+            bundle.putString("KEY", i+"");
             FragmentViewer frag = new FragmentViewer();
             frag.setArguments(bundle);
 
@@ -64,8 +64,5 @@ public class FragmentList extends ListFragment implements AdapterView.OnItemClic
             fragmentTransaction.replace(R.id.viewer, frag);
             fragmentTransaction.commit();
         }
-
-
-
     }
 }

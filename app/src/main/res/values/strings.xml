@@ -1,20 +1,29 @@
 <resources>
     <string name="app_name">FragmentApp</string>
 
-    <string name="descJupiter">   Júpiter es el quinto planeta del sistema solar.
-        Forma parte de los denominados planetas exteriores o gaseosos. Recibe su nombre del dios romano Júpiter
-    </string>
     <string-array name="Planets">
-        <item>Sun</item>
-        <item>Mercury</item>
+        <item>Sol</item>
+        <item>Mercurio</item>
         <item>Venus</item>
-        <item>Earth</item>
-        <item>Mars</item>
+        <item>Tierra</item>
+        <item>Marte</item>
         <item>Jupiter</item>
-        <item>Saturn</item>
-        <item>Uranus</item>
-        <item>Neptune</item>
+        <item>Saturno</item>
+        <item>Urano</item>
+        <item>Neptuno</item>
     </string-array>
+
+    <array name="imagenes">
+        <item>@drawable/sol</item>
+        <item>@drawable/mercurio</item>
+        <item>@drawable/venus</item>
+        <item>@drawable/tierra</item>
+        <item>@drawable/marte</item>
+        <item>@drawable/jupiter</item>
+        <item>@drawable/saturno</item>
+        <item>@drawable/urano</item>
+        <item>@drawable/neptuno</item>
+    </array>
 
     <string-array name="DescriptionPlanets">
         <item>El Sol ​ es una estrella de tipo-G de la secuencia principal y clase de luminosidad V

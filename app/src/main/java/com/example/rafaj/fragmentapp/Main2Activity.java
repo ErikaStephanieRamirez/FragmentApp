@@ -24,20 +24,20 @@ public class Main2Activity extends AppCompatActivity {
         String intentType = callingIntent.getType();
 
         if (Intent.ACTION_SEND.equals(intentAction) && intentType != null){
-            if (intentType.equals("text/plain")){
+            if (intentType.equals("text/text")){
                 handleReceivedText(callingIntent);
             }
         }
-
     }
 
     private void handleReceivedText(Intent intent){
         String intentText = intent.getStringExtra(Intent.EXTRA_TEXT);
+        Planetas planetaSeleccionada = new Planetas(getResources(),Integer.parseInt(intentText));
 
         if (text != null){
-            text.setText(intentText);
-            imagen.setImageDrawable(getResources().getDrawable(R.drawable.jupiter));
-            descripcion.setText("gatos");
+            text.setText(planetaSeleccionada.getNombre());
+            imagen.setImageDrawable(planetaSeleccionada.getImg());
+            descripcion.setText(planetaSeleccionada.getDescripcion());
         }
     }
 }

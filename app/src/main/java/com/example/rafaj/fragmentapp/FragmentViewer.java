@@ -27,18 +27,14 @@ public class FragmentViewer extends Fragment {
 
         Bundle bundle = this.getArguments();
 
-
         if(bundle != null){
-            Toast.makeText(getActivity(), "Item: " + bundle.getString("KEY"), Toast.LENGTH_SHORT).show();
 
-            text.setText(bundle.getString("KEY"));
-            imagen.setImageDrawable(getResources().getDrawable(R.drawable.jupiter));
-            descripcion.setText("gatos");
+            Planetas planetaSeleccionada = new Planetas(getResources(),Integer.parseInt(bundle.getString("KEY")));
 
+            text.setText(planetaSeleccionada.getNombre());
+            imagen.setImageDrawable(planetaSeleccionada.getImg());
+            descripcion.setText(planetaSeleccionada.getDescripcion());
         }
-
         return view;
     }
-
-
 }

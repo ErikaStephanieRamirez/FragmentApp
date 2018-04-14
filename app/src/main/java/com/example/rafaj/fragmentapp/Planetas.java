@@ -1,5 +1,7 @@
 package com.example.rafaj.fragmentapp;
 
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 
 /**
@@ -7,14 +9,25 @@ import android.widget.ImageView;
  */
 
 public class Planetas {
+    String nombre;
     String descripcion;
-    ImageView img;
+    Drawable img;
 
-    public ImageView getImg() {
+    public Planetas(Resources recursos,int index) {
+        this.nombre = (recursos.obtainTypedArray(R.array.Planets)).getString(index);
+        this.img = (recursos.obtainTypedArray(R.array.imagenes)).getDrawable(index);
+        this.descripcion = (recursos.obtainTypedArray(R.array.DescriptionPlanets)).getString(index);
+    }
+
+    public Drawable getImg() {
         return img;
     }
 
-    public void setImg(ImageView img) {
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setImg(Drawable img) {
         this.img = img;
     }
 
