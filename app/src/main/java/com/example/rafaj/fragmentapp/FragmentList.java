@@ -13,8 +13,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by rafaj on 8/4/2018.
+ *
  */
 
 public class FragmentList extends ListFragment implements AdapterView.OnItemClickListener{
@@ -25,7 +29,6 @@ public class FragmentList extends ListFragment implements AdapterView.OnItemClic
         View view = inflater.inflate(R.layout.list_fragment, container, false);
         return view;
     }
-
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {

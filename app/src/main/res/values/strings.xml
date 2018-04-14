@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">FragmentApp</string>
 
+    <string name="descJupiter">   Júpiter es el quinto planeta del sistema solar.
+        Forma parte de los denominados planetas exteriores o gaseosos. Recibe su nombre del dios romano Júpiter
+    </string>
     <string-array name="Planets">
         <item>Sun</item>
         <item>Mercury</item>
@@ -12,4 +15,40 @@
         <item>Uranus</item>
         <item>Neptune</item>
     </string-array>
+
+    <string-array name="DescriptionPlanets">
+        <item>El Sol ​ es una estrella de tipo-G de la secuencia principal y clase de luminosidad V
+            que se encuentra en el centro del sistema solar y constituye la mayor fuente de radiación
+            electromagnética de este sistema planetario.</item>
+
+        <item>Mercurio es el planeta del sistema solar más próximo al Sol y el más pequeño. Forma
+            parte de los denominados planetas interiores o terrestres y carece de satélites naturales
+            al igual que Venus.</item>
+
+        <item>Venus es el segundo planeta del sistema solar en orden de distancia desde el Sol, el
+            sexto en cuanto a tamaño, ordenados de mayor a menor. Al igual que Mercurio, carece de
+            satélites naturales.</item>
+
+        <item>La Tierra es un planeta del sistema solar que gira alrededor de su estrella —el Sol—
+            en la tercera órbita más interna. Es el más denso y el quinto mayor de los ocho planetas
+            del sistema solar. También es el mayor de los cuatro terrestres o rocosos.</item>
+
+        <item>Marte es el cuarto planeta en orden de distancia al Sol y el segundo más pequeño del
+            sistema solar, después de Mercurio.</item>
+
+        <item>Júpiter es el quinto planeta del sistema solar. Forma parte de los denominados planetas
+            exteriores o gaseosos. Recibe su nombre del dios romano Júpiter. Se trata del planeta que
+            ofrece un mayor brillo a lo largo del año dependiendo de su fase.</item>
+
+        <item>Saturno es el sexto planeta del sistema solar, el segundo en tamaño y masa después de
+            Júpiter y el único con un sistema de anillos visible desde nuestro planeta. </item>
+
+        <item>Urano es el séptimo planeta del sistema solar, el tercero de mayor tamaño, y el cuarto más masivo.</item>
+
+        <item>Neptuno es el octavo planeta en distancia respecto al Sol y el más lejano del sistema solar.
+            Forma parte de los denominados planetas exteriores o gigantes gaseosos, y es el primero
+            que fue descubierto gracias a predicciones matemáticas</item>
+
+    </string-array>
+
 </resources>

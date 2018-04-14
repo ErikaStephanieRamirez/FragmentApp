@@ -3,17 +3,21 @@ package com.example.rafaj.fragmentapp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class Main2Activity extends AppCompatActivity {
     TextView text;
-
+    ImageView imagen;
+    TextView descripcion;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
         text = findViewById(R.id.textId);
+        imagen = findViewById(R.id.imgId);
+        descripcion = findViewById(R.id.descId);
 
         Intent callingIntent = getIntent();
         String intentAction = callingIntent.getAction();
@@ -32,6 +36,8 @@ public class Main2Activity extends AppCompatActivity {
 
         if (text != null){
             text.setText(intentText);
+            imagen.setImageDrawable(getResources().getDrawable(R.drawable.jupiter));
+            descripcion.setText("gatos");
         }
     }
 }
