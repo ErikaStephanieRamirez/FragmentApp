@@ -1,6 +1,9 @@
 package com.example.rafaj.fragmentapp;
 
 import android.app.Fragment;
+import android.content.res.Resources;
+import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,10 +21,12 @@ public class FragmentViewer extends Fragment {
     ImageView imagen;
     TextView descripcion;
     TextView gravedad;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.viewer_fragment, container, false);
 
+        //selecciona a que textview o imageview va a enviar cada recurso
         text = view.findViewById(R.id.textId);
         imagen = view.findViewById(R.id.imgId);
         gravedad = view.findViewById(R.id.gravId);
@@ -30,15 +35,20 @@ public class FragmentViewer extends Fragment {
         Bundle bundle = this.getArguments();
 
         if(bundle != null){
-            //instancia de Planetas enviando los recursos y el indice del item seleccionado a traves de la llave recibida de FragmentList
-            Planetas planetaSeleccionada = new Planetas(getResources(),Integer.parseInt(bundle.getString("KEY")));
+            Planetas planets = (Planetas)bundle.getSerializable("KEY"); //crea instancia de la clase Planeta y recibe de manera serializada la llave desde FragmentList
 
-            //settea la imagen y los strings utilizando la instancia planetaSeleccionada para obtener los objetos de la clase Planeta
-            text.setText(planetaSeleccionada.getNombre());
-            imagen.setImageDrawable(planetaSeleccionada.getImg());
-            gravedad.setText(planetaSeleccionada.getGravedad());
-            descripcion.setText(planetaSeleccionada.getDescripcion());
+            //para obbtener la imagen desde recursos:
+            Resources resources = getResources();
+            TypedArray imagenes = resources.obtainTypedArray(R.array.imagenes);
+            Drawable drawable = imagenes.getDrawable(Integer.parseInt(planets.getImg()));
+
+            //setea al layout cada valor en el textview o imageview
+            text.setText(planets.getNombre());
+            gravedad.setText(planets.getGravedad());
+            descripcion.setText(planets.getDescripcion());
+            imagen.setImageDrawable(drawable);
         }
         return view;
     }
+
 }

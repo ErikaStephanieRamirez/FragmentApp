@@ -23,9 +23,21 @@ import java.util.List;
 
 public class FragmentList extends ListFragment implements AdapterView.OnItemClickListener{
 
+    private String[] Nombre;
+    private String[] Gravedad;
+    private String[] Descripcion;
+    private String[] Img;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.list_fragment, container, false);
+
+        //obtiene los recursos con los valores de los arreglos para poder enviarlos posteriormente
+        Nombre = getResources().getStringArray(R.array.Planets);
+        Gravedad = getResources().getStringArray(R.array.gravedad);
+        Descripcion = getResources().getStringArray(R.array.DescriptionPlanets);
+        Img = getResources().getStringArray(R.array.num);
+
         return view;
     }
 
@@ -38,27 +50,27 @@ public class FragmentList extends ListFragment implements AdapterView.OnItemClic
         getListView().setOnItemClickListener(this);
     }
 
-    @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        Planetas planets = new Planetas(Nombre[i], Gravedad[i], Descripcion[i], Img[i]); //instancia de la clase planeta donde le envia la posicion para cada arreglo del item que se a seleccionado
 
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
             Toast.makeText(getActivity(), "Item: " + adapterView.getItemAtPosition(i).toString(), Toast.LENGTH_SHORT).show();
+
             Intent newIntent = new Intent(getActivity().getApplicationContext(), Main2Activity.class);
-            newIntent.setAction(Intent.ACTION_SEND);
-            newIntent.setType("text/text");
-            newIntent.putExtra(Intent.EXTRA_TEXT, i+""); //envia la posicion del item que selecciono el usuario a Main2Activity
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("KEY", planets); //envia como llave directamente la instancia de planeta a MainActivity2
+            newIntent.putExtras(bundle);
             startActivity(newIntent);
         }
-
         else if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
             Toast.makeText(getActivity(), "Item: " + adapterView.getItemAtPosition(i).toString(), Toast.LENGTH_SHORT).show();
 
-            Bundle bundle = new Bundle();
-            bundle.putString("KEY", i+""); //envia la posicion del item que selecciono el usuario como una llave a FragmentViewer
             FragmentViewer frag = new FragmentViewer();
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("KEY",planets); //envia como llave directamente la instancia de planeta a MainActivity2
             frag.setArguments(bundle);
 
-            FragmentManager fragmentManager = getFragmentManager();
+            final FragmentManager fragmentManager = getFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
             fragmentTransaction.replace(R.id.viewer, frag);

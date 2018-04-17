@@ -26,15 +26,15 @@
     </array>
 
     <string-array name="gravedad">
-        <item>274 m/s²</item>
-        <item>3,7 m/s²</item>
-        <item>8,87 m/s²</item>
-        <item>9,807 m/s²</item>
-        <item>3,711 m/s²</item>
-        <item>24,79 m/s²</item>
-        <item>10,44 m/s²</item>
-        <item>8,69 m/s²</item>
-        <item>11,15 m/s²</item>
+        <item>Gravedad: 274 m/s²</item>
+        <item>Gravedad: 3,7 m/s²</item>
+        <item>Gravedad: 8,87 m/s²</item>
+        <item>Gravedad: 9,807 m/s²</item>
+        <item>Gravedad: 3,711 m/s²</item>
+        <item>Gravedad: 24,79 m/s²</item>
+        <item>Gravedad: 10,44 m/s²</item>
+        <item>Gravedad: 8,69 m/s²</item>
+        <item>Gravedad: 11,15 m/s²</item>
     </string-array>
 
     <string-array name="DescriptionPlanets">
@@ -69,6 +69,18 @@
         <item>Neptuno es el octavo planeta en distancia respecto al Sol y el más lejano del sistema solar, y es el primero
             que fue descubierto gracias a predicciones matemáticas</item>
 
+    </string-array>
+
+    <string-array name="num">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
     </string-array>
 
 </resources>

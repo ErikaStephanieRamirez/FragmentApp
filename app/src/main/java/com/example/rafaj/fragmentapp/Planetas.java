@@ -1,8 +1,6 @@
 package com.example.rafaj.fragmentapp;
 
-import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
-import android.widget.ImageView;
+import java.io.Serializable;
 
 /**
  * Created by Erika on 13/4/2018.
@@ -10,51 +8,54 @@ import android.widget.ImageView;
 
 //clase para obtener los strings y la imagen
 
-public class Planetas {
-    String nombre;
-    String descripcion;
-    String gravedad;
-    Drawable img;
+public class Planetas implements Serializable {
+    String Nombre;
+    String Descripcion;
+    String Gravedad;
+    String Img;
 
-    //constructor que recibe los recursos y el indece para asi poder obtener una posicion de los arreglos
+    //constructor que recibe los las posiciones de cada array desde la clase FragmentList
 
-    public Planetas(Resources recursos,int index) {
-        this.nombre = (recursos.obtainTypedArray(R.array.Planets)).getString(index);
-        this.img = (recursos.obtainTypedArray(R.array.imagenes)).getDrawable(index);
-        this.gravedad = "Gravedad: " +(recursos.obtainTypedArray(R.array.gravedad)).getString(index);
-        this.descripcion = (recursos.obtainTypedArray(R.array.DescriptionPlanets)).getString(index);
+    public Planetas(String nombre, String gravedad, String descripcion, String img) {
+
+        //obtiene cada valor recibido desde el constructor a traves de los get
+        this.Nombre = nombre;
+        this.Descripcion = descripcion;
+        this.Gravedad = gravedad;
+        this.Img = img;
+
     }
 
     //Setter y getter
-    public Drawable getImg() {
-        return img;
+    public String getImg() {
+        return Img;
     }
 
     public String getNombre() {
-        return nombre;
+        return Nombre;
     }
 
     public String getDescripcion() {
-        return descripcion;
+        return Descripcion;
     }
 
     public String getGravedad() {
-        return gravedad;
+        return Gravedad;
     }
 
     public void setGravedad(String gravedad) {
-        this.gravedad = gravedad;
+        this.Gravedad = gravedad;
     }
 
-    public void setImg(Drawable img) {
-        this.img = img;
+    public void setImg(String img) {
+        this.Img = img;
     }
 
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        this.Nombre = nombre;
     }
 
     public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+        this.Descripcion = descripcion;
     }
 }
